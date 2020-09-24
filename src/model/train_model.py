@@ -1,6 +1,7 @@
 import logging
 import numpy as np
 import json
+import cdsw
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
@@ -129,6 +130,7 @@ def train_model(
     logging.info(f"Writing out model to {output_path}/trained.model")
 
     joblib.dump(pipeline, f"{output_path}/trained.model")
+    cdsw.track_file(f"{output_path}/trained.model")
 
     logging.info("End `train_model`")
 

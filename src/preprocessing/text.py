@@ -16,7 +16,7 @@ def normalise_text_to_ascii(text: str) -> str:
     return result
 
 
-def get_regex_for_az_digits_underscores() -> re.Pattern:
+def get_regex_for_az_digits_underscores():
     """
     Return a compiled Regex Pattern that will match:
         - lower cased letter `a-z`, does not account for accented characters
@@ -28,7 +28,7 @@ def get_regex_for_az_digits_underscores() -> re.Pattern:
     return re.compile(r"[a-z\d\-]")
 
 
-def get_regex_for_non_whitespace() -> re.Pattern:
+def get_regex_for_non_whitespace():
     """
     Return a compiled Regex Pattern that will match characters that are NOT:
         - Whitespace
@@ -41,7 +41,7 @@ def get_regex_for_non_whitespace() -> re.Pattern:
     return re.compile(r"[^\xA0\s]")
 
 
-def normalise_text_to_only_regex_matches(text: str, matcher: re.Pattern) -> str:
+def normalise_text_to_only_regex_matches(text: str, matcher) -> str:
     """
     Filter out the characters in the text that do not match the given matcher
 
