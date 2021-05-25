@@ -17,7 +17,17 @@ def predict(args):
     if "." in domain_name:
         domain_parts = tldextract.extract(data['domain'])
         domain_name = domain_parts.domain
-
+        
+    print("original", args, sep="=")
+    print("second level", domain_name, sep="=")
+    
+    try:
+          model_result = query_model.predict(domain_name)
+    except ValueError:
+        model_result='unknown'
+    
     return {
-        'legit': query_model.predict(domain_name)
+        'legit': model_result
         }
+    
+   
