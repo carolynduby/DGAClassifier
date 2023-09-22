@@ -73,7 +73,7 @@ def count_character_pairs_in_column_as_df(
 
     count_windowed = count_vectorizer.fit_transform(series_windowed_corpus)
 
-    result_df = pd.DataFrame(count_windowed.toarray(), columns=count_vectorizer.get_feature_names())
+    result_df = pd.DataFrame(count_windowed.toarray(), columns=count_vectorizer.get_feature_names_out())
 
     if subset_to_pairs is not None:
         pairs_present = [x for x in list(result_df.columns) if x in subset_to_pairs]

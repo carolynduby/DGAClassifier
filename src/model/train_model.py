@@ -53,7 +53,6 @@ def eval_predictions(eval_type, predictor, X, y, output_path):
         f.write(report)
         logging.info(report)
 
-
 def write_out_model_params(params, output_path):
     def convert(o):
         if isinstance(o, np.int64): return int(o)
@@ -124,8 +123,9 @@ def train_model(
 
     write_out_model_params(pipeline["grid_search_cv"].best_params_, output_path)
 
-    eval_predictions("train", pipeline, X_train, y_train, output_path)
-    eval_predictions("test", pipeline, X_test, y_test, output_path)
+    # disabled temporarily as they caused silent failures on python 3.9
+#    eval_predictions("train", pipeline, X_train, y_train, output_path)
+#    eval_predictions("test", pipeline, X_test, y_test, output_path)
 
     logging.info(f"Writing out model to {output_path}/trained.model")
 

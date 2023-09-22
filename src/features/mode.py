@@ -15,9 +15,8 @@ def mode(x: np.array) -> np.float64:
     :return: np.float64
     """
     result = stats.mode(x)
-
-    if result[1][0] > 1:
-        return result[0][0]
+    if result.count > 1:
+        return result.mode
     else:
         # there was no identifiable mode return np.nan
         return np.nan
